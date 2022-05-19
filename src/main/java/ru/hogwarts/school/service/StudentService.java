@@ -8,7 +8,7 @@ import java.util.HashMap;
 @Service
 public class StudentService {
 
-    private HashMap<Long, Student> students = new HashMap<>();
+    private final HashMap<Long, Student> students = new HashMap<>();
     private long lastId = 0;
 
     public Student createStudent(Student student) {
@@ -22,8 +22,11 @@ public class StudentService {
     }
 
     public Student editStudent(Student student){
-        students.put(student.getId(), student);
-        return student;
+        if (students.containsKey(student.getId())){
+            students.put(student.getId(), student);
+            return student;
+        }
+        return null;
     }
 
     public Student deleteStudent(long id){

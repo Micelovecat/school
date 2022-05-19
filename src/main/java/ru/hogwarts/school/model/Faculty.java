@@ -8,6 +8,15 @@ public class Faculty {
     private String name;
     private String color;
 
+    @Override
+    public String toString() {
+        return "Faculty{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", color='" + color + '\'' +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }

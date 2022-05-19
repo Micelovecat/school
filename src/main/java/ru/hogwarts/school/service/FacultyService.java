@@ -9,5 +9,25 @@ import java.util.HashMap;
 public class FacultyService {
 
     private HashMap<Long, Faculty> faculties = new HashMap<>();
+    private long lastId = 0;
+
+    public Faculty createFaculty(Faculty faculty){
+        faculty.setId(++lastId);
+        faculties.put(lastId, faculty);
+        return faculty;
+    }
+
+    public Faculty findFaculty(long id){
+        return faculties.get(id);
+    }
+
+    public Faculty editFaculty(Faculty faculty){
+        faculties.put(faculty.getId(), faculty);
+        return faculty;
+    }
+
+    public Faculty deleteFaculty(long id){
+        return faculties.remove(id);
+    }
 
 }
