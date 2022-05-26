@@ -1,13 +1,18 @@
 package ru.hogwarts.school.controller;
 
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.service.StudentService;
 
+import java.util.Set;
+
+@SuppressWarnings("ConstantConditions")
 @RestController
 @RequestMapping("student")
+
 public class StudentController {
 
     private final StudentService studentService;
@@ -18,13 +23,24 @@ public class StudentController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity getStudentInfo(@PathVariable Long id){
-        final Student student = studentService.findStudent(id);
+    public Object getStudent(@PathVariable Long id){
+        Student student = studentService.findStudent(id);
         if (student == null){
-            return ResponseEntity.notFound().build();
+            final HttpStatus notFound = HttpStatus.NOT_FOUND;
+            return (HttpStatus.NOT_FOUND);
         }
-        return ResponseEntity.ok(student);
+        return student;
+    }
 
+    @GetMapping(params = {"age"})
+    public Set<Student> findStudentByAge(@RequestParam(required = false) Integer age){
+        return studentService.findByAge(age);
+    }
+
+    @GetMapping(params = {"minAge", "maxAge"})
+    public Set<Student> findByAgeBetween(@RequestParam(required = false) Integer minAge,
+                                         @RequestParam(required = false) Integer maxAge) {
+        return studentService.findByAgeBetween(minAge, maxAge);
     }
 
     @PostMapping

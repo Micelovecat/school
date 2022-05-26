@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.repository.FacultyRepository;
 
+import java.util.Set;
+
 @Service
 public class FacultyService {
 
@@ -30,4 +32,11 @@ public class FacultyService {
         facultyRepository.deleteById(id);
     }
 
+    public Set<Faculty> findByColor(String color) {
+        return facultyRepository.findAll(color);
+    }
+
+    public Set<Faculty> findByColorOrNameIgnoreCase(String color, String name) {
+        return facultyRepository.findAll(color, name);
+    }
 }
