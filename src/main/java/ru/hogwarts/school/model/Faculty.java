@@ -14,13 +14,7 @@ public class Faculty {
     private String name;
     private String color;
 
-    @Override
-    public String toString() {
-        return "Faculty{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", color='" + color + '\'' +
-                '}';
+    public Faculty() {
     }
 
     public Long getId() {
@@ -58,5 +52,14 @@ public class Faculty {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, color);
+    }
+
+    @Override
+    public String toString() {
+        return "Faculty{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", color='" + color + '\'' +
+                '}';
     }
 }

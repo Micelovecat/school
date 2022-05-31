@@ -3,9 +3,6 @@ import org.springframework.stereotype.Service;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.repository.StudentRepository;
 
-import java.util.Set;
-
-@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Service
 public class StudentService {
 
@@ -14,6 +11,7 @@ public class StudentService {
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
+
 
     public Student createStudent(Student student) {
         return studentRepository.save(student);
