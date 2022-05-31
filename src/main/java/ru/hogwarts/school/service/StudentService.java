@@ -31,12 +31,12 @@ public class StudentService {
     public void deleteStudent(long id){
         studentRepository.deleteById(id);
     }
-
-    public Set<Student> findByAge(Integer age) {
-        return (Set<Student>) studentRepository.findByAgeBetween(age);
-    }
-
-    public Set<Student> findByAgeBetween(Integer minAge, Integer maxAge) {
-        return (Set<Student>) studentRepository.findByAgeBetween(minAge, maxAge);
-    }
+//
+//    public Set<Student> findByAge(Integer age) {
+//        return (Set<Student>) studentRepository.findByAgeBetween(age);
+//    }
+//
+//    public Set<Student> findByAgeBetween(Integer minAge, Integer maxAge) {
+//        return (Set<Student>) studentRepository.findByAgeBetween(minAge, maxAge);
+//    }
 }

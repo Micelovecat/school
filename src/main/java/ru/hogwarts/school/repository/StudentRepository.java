@@ -11,7 +11,7 @@ public interface StudentRepository {
 
     void deleteById(long id);
 
-    Object findByAgeBetween(Integer age);
-
-    Object findByAgeBetween(Integer minAge, Integer maxAge);
+//    Object findByAgeBetween(Integer age);
+//
+//    Object findByAgeBetween(Integer minAge, Integer maxAge);
 }
