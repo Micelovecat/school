@@ -33,10 +33,10 @@ public class StudentService {
     }
 
     public Set<Student> findByAge(Integer age) {
-        return (Set<Student>) studentRepository.findByAgeBetween(age);
+        return studentRepository.findStudentsByAgeIs(age);
     }
 
     public Set<Student> findByAgeBetween(Integer minAge, Integer maxAge) {
-        return (Set<Student>) studentRepository.findByAgeBetween(minAge, maxAge);
+        return studentRepository.findByAgeBetween(minAge, maxAge);
     }
 }

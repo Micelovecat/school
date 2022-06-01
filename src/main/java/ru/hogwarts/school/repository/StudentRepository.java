@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import ru.hogwarts.school.model.Student;
 
 import java.util.Optional;
+import java.util.Set;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
 //    Student save(Student student);
@@ -12,7 +13,9 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     void deleteById(long id);
 
-    Object findByAgeBetween(Integer age);
+//    Object findByAgeBetween(Integer age);
 
-    Object findByAgeBetween(Integer minAge, Integer maxAge);
+    Set<Student> findStudentsByAgeIs(Integer age);
+
+    Set<Student> findByAgeBetween(Integer minAge, Integer maxAge);
 }
