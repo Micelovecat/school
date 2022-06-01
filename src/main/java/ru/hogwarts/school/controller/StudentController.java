@@ -32,16 +32,16 @@ public class StudentController {
         return student;
     }
 
-//    @GetMapping(params = {"age"})
-//    public Set<Student> findStudentByAge(@RequestParam(required = false) Integer age){
-//        return studentService.findByAge(age);
-//    }
-//
-//    @GetMapping(params = {"minAge", "maxAge"})
-//    public Set<Student> findByAgeBetween(@RequestParam(required = false) Integer minAge,
-//                                         @RequestParam(required = false) Integer maxAge) {
-//        return studentService.findByAgeBetween(minAge, maxAge);
-//    }
+    @GetMapping(params = {"age"})
+    public Set<Student> findStudentByAge(@RequestParam(required = false) Integer age){
+        return studentService.findByAge(age);
+    }
+
+    @GetMapping(params = {"minAge", "maxAge"})
+    public Set<Student> findByAgeBetween(@RequestParam(required = false) Integer minAge,
+                                         @RequestParam(required = false) Integer maxAge) {
+        return studentService.findByAgeBetween(minAge, maxAge);
+    }
 
     @PostMapping
     public Student createStudent(@RequestBody Student student){

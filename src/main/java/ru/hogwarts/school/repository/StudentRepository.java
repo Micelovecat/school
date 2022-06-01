@@ -12,7 +12,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     void deleteById(long id);
 
-//    Object findByAgeBetween(Integer age);
-//
-//    Object findByAgeBetween(Integer minAge, Integer maxAge);
+    Object findByAgeBetween(Integer age);
+
+    Object findByAgeBetween(Integer minAge, Integer maxAge);
 }
