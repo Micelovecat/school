@@ -14,13 +14,11 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-
     public Student createStudent(Student student) {
         return studentRepository.save(student);
     }
 
     public Student findStudent(long id){
-
         return (Student) studentRepository.findById(id).orElseThrow();
     }
 
